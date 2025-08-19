@@ -9,9 +9,26 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
+-include Core/UART/subdir.mk
+-include Core/ThreadFunction/subdir.mk
+-include Core/TaskFunctions/subdir.mk
+-include Core/System/subdir.mk
+-include Core/SwitchTask/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Semaphore/subdir.mk
+-include Core/OS/subdir.mk
+-include Core/Mutex/subdir.mk
+-include Core/MQueue/subdir.mk
+-include Core/LED/subdir.mk
+-include Core/GPIO/subdir.mk
+-include Core/Console/subdir.mk
+-include Core/BlinkTask/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
