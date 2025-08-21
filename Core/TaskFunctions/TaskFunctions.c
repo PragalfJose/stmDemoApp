@@ -35,7 +35,7 @@ bool taskCreateTask(TASKS *stTask,
 {
 	bool blReturn = false;
 
-	if(stTask != NULL)
+	if(NULL != stTask)
 	{
 		const osThreadAttr_t stTask_attributes =
 			{
@@ -46,7 +46,7 @@ bool taskCreateTask(TASKS *stTask,
 		*pTaskHandle = osThreadNew(stTask->pTaskFunction,
 				                  pvTaskParameter,
 								  &stTask_attributes);
-		if(*pTaskHandle != NULL)
+		if(NULL != *pTaskHandle)
 		{
 			blReturn = true;
 		}

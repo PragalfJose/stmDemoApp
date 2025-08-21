@@ -38,10 +38,10 @@ bool semSemaphoreCreate(osSemaphoreId_t *psemSemaphoreID,
 {
 	bool blReturn = false;
 
-	if((*psemSemaphoreID == NULL) && (ulMaxCount != 0))
+	if((NULL == *psemSemaphoreID) && (ulMaxCount != 0))
 	{
 		*psemSemaphoreID = osSemaphoreNew(ulMaxCount, ulInitCount, pstAttr);
-		if(*psemSemaphoreID != NULL)
+		if(NULL != *psemSemaphoreID)
 		{
 			blReturn = true;
 		}
@@ -62,7 +62,7 @@ bool semSemaphoreDelete(osSemaphoreId_t psemSemaphoreID)
 {
 	bool blReturn = false;
 
-	if(psemSemaphoreID != NULL)
+	if(NULL != psemSemaphoreID)
 	{
 		if(osSemaphoreDelete(psemSemaphoreID) == osOK)
 		{
@@ -86,7 +86,7 @@ bool semSemaphoreAcquire(osSemaphoreId_t psemSemaphoreID, uint32 ulTimeout)
 {
 	bool blReturn = false;
 
-	if(psemSemaphoreID != NULL)
+	if(NULL != psemSemaphoreID)
 	{
 		if(osSemaphoreAcquire(psemSemaphoreID, ulTimeout) == osOK)
 		{
@@ -109,7 +109,7 @@ bool semSemaphoreRelease(osSemaphoreId_t psemSemaphoreID)
 {
 	bool blReturn = false;
 
-	if(psemSemaphoreID != NULL)
+	if(NULL != psemSemaphoreID)
 	{
 		if(osSemaphoreRelease (psemSemaphoreID) == osOK)
 		{

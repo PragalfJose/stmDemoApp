@@ -34,10 +34,10 @@ bool mutexMutexCreate(osMutexId_t *pmutMutexID,
 {
 	bool blReturn = false;
 
-	if(*pmutMutexID == NULL)
+	if(NULL == *pmutMutexID)
 	{
 		*pmutMutexID = osMutexNew(pstAttr);
-		if(*pmutMutexID != NULL)
+		if(NULL != *pmutMutexID)
 		{
 			blReturn = true;
 		}
@@ -57,7 +57,7 @@ bool mutexMutexDelete(osMutexId_t pmutMutexID)
 {
 	bool blReturn = false;
 
-	if(pmutMutexID != NULL)
+	if(NULL != pmutMutexID)
 	{
 		if(osMutexDelete(pmutMutexID) == osOK)
 		{
@@ -81,7 +81,7 @@ bool mutexMutexAcquire(osMutexId_t pmutMutexID, uint32 ulTimeout)
 {
 	bool blReturn = false;
 
-	if(pmutMutexID != NULL)
+	if(NULL != pmutMutexID)
 	{
 		if(osMutexAcquire (pmutMutexID, ulTimeout) == osOK)
 		{
@@ -104,7 +104,7 @@ bool mutexMutexRelease(osMutexId_t pmutMutexID)
 {
 	bool blReturn = false;
 
-	if(pmutMutexID != NULL)
+	if(NULL != pmutMutexID)
 	{
 		if(osMutexRelease(pmutMutexID) == osOK)
 		{

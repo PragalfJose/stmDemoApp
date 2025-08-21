@@ -64,7 +64,7 @@ bool consoleSerialPrint(int8 *pcInputData, uint16 unDataLen, uint32 ulTimeout)
 {
 	bool blReturn = false;
 
-	if((pcInputData != NULL) && unDataLen != ZERO)
+	if((NULL != pcInputData) && (ZERO != unDataLen))
 	{
 		if(uartTransfer(&stUart2, pcInputData, unDataLen, ulTimeout) == true)
 		{

@@ -54,7 +54,7 @@ void gpioInit(void)
 //*****************************************************************************
 void gpioSetDirInput(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -75,7 +75,7 @@ void gpioSetDirInput(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 //*****************************************************************************
 void gpioSetDirOutput(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -97,7 +97,7 @@ void gpioSetDirOutput(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 //*****************************************************************************
 void gpioSetPin(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		HAL_GPIO_WritePin(pstGpioPort, unGpioPin, GPIO_PIN_SET);
 	}
@@ -113,7 +113,7 @@ void gpioSetPin(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 //*****************************************************************************
 void gpioClearPin(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		HAL_GPIO_WritePin(pstGpioPort, unGpioPin, GPIO_PIN_RESET);
 	}
@@ -129,7 +129,7 @@ void gpioClearPin(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 //*****************************************************************************
 void gpioTogglePin(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		HAL_GPIO_TogglePin(pstGpioPort, unGpioPin);
 	}
@@ -147,7 +147,7 @@ bool gpioGetPinStatus(GPIO_TypeDef *pstGpioPort, uint16 unGpioPin)
 {
 	bool blReturn = false;
 
-	if(pstGpioPort != NULL)
+	if(NULL != pstGpioPort)
 	{
 		if(HAL_GPIO_ReadPin(pstGpioPort, unGpioPin) == GPIO_PIN_SET)
 		{

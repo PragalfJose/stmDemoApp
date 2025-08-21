@@ -61,7 +61,7 @@ void blinkTaskBlink(void *pvParameter)
 				{
 					mutexMutexAcquire(stTaskParameter.pmutMutexID,
 							          osWaitForever);
-					if(threadProcessMessage(__func__, stMessageData) == true)
+					if(threadProcessMessage(__func__, &stMessageData) == true)
 					{
 						ledLedToggle();
 						memset(&stAckData, 0, sizeof(ACKNOWLEDGE));

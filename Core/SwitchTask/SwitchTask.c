@@ -99,7 +99,7 @@ void switchTaskSwitch(void *pvParameter)
 							MQ_TIMEOUT);
 			mutexMutexAcquire(stTaskParameter.pmutMutexID,
 							  MUTEX_TIMEOUT);
-			if(threadProcessAcknowledge(__func__, stAckData) != true)
+			if(threadProcessAck(__func__, &stAckData) != true)
 			{
 				threadPrintError(__func__, ERR_ACK_ERR);
 			}

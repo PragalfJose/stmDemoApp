@@ -65,9 +65,9 @@ typedef enum _ERRORVALUE_
 //***************************** Global Variables ******************************
 
 //**************************** Function Declarations **************************
-bool threadProcessAcknowledge(const int8 *pcFunctionName,
-		                      ACKNOWLEDGE stAckData);
-bool threadProcessMessage(const int8 *pcFunctionName, MESSAGE stMessageData);
+bool threadProcessAck(const int8 *pcFunctionName,
+		                      ACKNOWLEDGE *stAckData);
+bool threadProcessMessage(const int8 *pcFunctionName, MESSAGE *stMessageData);
 void threadPrintError(const int8 *pcFunctionName, ERRORVALUE enErrorValue);
 
 //*********************** Inline Method Implementations ***********************

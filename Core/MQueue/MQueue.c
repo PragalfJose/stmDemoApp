@@ -37,14 +37,14 @@ bool mqMQueueOpen(osMessageQueueId_t *pvmqMQueueID,
 {
 	bool blReturn = false;
 
-	if((*pvmqMQueueID == NULL) &&
-	   (ulMessageCount != ZERO) &&
-	   (ulMessageSize != ZERO))
+	if((NULL == *pvmqMQueueID) &&
+	   (ZERO != ulMessageCount) &&
+	   (ZERO != ulMessageSize))
 	{
 		*pvmqMQueueID = osMessageQueueNew(ulMessageCount,
 										  ulMessageSize,
 										  pstMQueueAttr);
-		if(*pvmqMQueueID != NULL)
+		if(NULL != *pvmqMQueueID)
 		{
 			blReturn = true;
 		}
@@ -65,7 +65,7 @@ bool mqMQueueClose(osMessageQueueId_t pvmqMQueueID)
 {
 	bool blReturn = false;
 
-	if(pvmqMQueueID != NULL)
+	if(NULL != pvmqMQueueID)
 	{
 		if(osMessageQueueDelete(pvmqMQueueID) == osOK)
 		{
@@ -94,7 +94,7 @@ bool mqMQueuePutData(osMessageQueueId_t pvmqMQueueID,
 {
 	bool blReturn = false;
 
-	if((pvmqMQueueID != NULL) && (pvMessageData != NULL))
+	if((NULL != pvmqMQueueID) && (NULL != pvMessageData))
 	{
 		if(osMessageQueuePut(pvmqMQueueID,
 							 pvMessageData,
@@ -125,7 +125,7 @@ bool mqMQueueGetData(osMessageQueueId_t pvmqMQueueID,
 {
 	bool blReturn = false;
 
-	if((pvmqMQueueID != NULL) && (pvMessageData != NULL))
+	if((NULL != pvmqMQueueID) && (NULL != pvMessageData))
 	{
 		if(osMessageQueueGet(pvmqMQueueID,
 				             pvMessageData,
@@ -151,7 +151,7 @@ bool mqMQueueDataCount(osMessageQueueId_t pvmqMQueueID, uint32 *ulMessageCount)
 {
 	bool blReturn = false;
 
-	if((pvmqMQueueID != NULL) && (ulMessageCount != NULL))
+	if((NULL != pvmqMQueueID) && (NULL != ulMessageCount))
 	{
 		*ulMessageCount = osMessageQueueGetCount (pvmqMQueueID);
 		if(*ulMessageCount > ZERO)
@@ -175,7 +175,7 @@ bool mqMQueueFreeSpace(osMessageQueueId_t pvmqMQueueID, uint32 *ulFreeSpace)
 {
 	bool blReturn = false;
 
-	if((pvmqMQueueID != NULL) && (ulFreeSpace != NULL))
+	if((NULL != pvmqMQueueID) && (NULL != ulFreeSpace))
 	{
 		*ulFreeSpace = osMessageQueueGetSpace(pvmqMQueueID);
 		if(*ulFreeSpace > ZERO)
@@ -199,7 +199,7 @@ bool mqMQueueReset(osMessageQueueId_t pvmqMQueueID)
 {
 	bool blReturn = false;
 
-	if(pvmqMQueueID != NULL)
+	if(NULL != pvmqMQueueID)
 	{
 		if(osMessageQueueReset(pvmqMQueueID) == osOK)
 		{
