@@ -1,0 +1,24 @@
+# Confif files
+.cproject
+.mxproject
+.project
+.settings/
+
+#other files
+*.map
+*.list
+*.map
+*.elf
+*.d
+*.o
+*.su
+*.cyclo
+*.txt
+*.launch
+*.bin
+*.hex
+*.log
+*.axf
+*.lst
+*.srec
+*.s
